@@ -1,0 +1,33 @@
+.app-container {
+  // background-color: $color-gray5;
+  background-image: url(imgs/test.jpg);
+  background-size: cover;
+  background-position: bottom;
+  text-align: center;
+  // background-color: red;
+}
+
+.app{
+  // background-color: green;
+  display: inline-block;
+  width: $window-size;
+  border: .5rem rgba($color: #000000, $alpha: .8) solid;
+  border-radius: 4rem;
+  margin: $m-y 0;
+  box-shadow: 0 0 10rem rgba($color: $color-gray1, $alpha: 0.9);
+  overflow: hidden;
+
+}
+
+.left-container {
+  // background-image: linear-gradient(to left bottom, rgba($color-gray7, .2), rgba($color-gray4, .2));
+  float: left;
+  width: 70%;
+}
+
+.right-container {
+  // background-color: rgba($color-gray7, .2);
+  // background-image: linear-gradient(to left bottom, $color-gray7, $color-gray4);
+  float: right;
+  width: 30%;
+}
