@@ -1,28 +1,50 @@
-import React from 'react';
+import React from "react";
 
 class SearchBar extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.domCancel = React.createRef();
+    this.state = {
+      query: ""
+    };
   }
 
-  componentDidMount(){
-    this.domCancel.current.addEventListener('click', () => {
-      console.log(this.domCancel.current);
-      this.domCancel.current.previousElementSibling.value = '';
+  handleInput = e => {
+    this.setState({
+      query: e.target.value
     });
+  };
+
+  handleClick = e => {
+    e.target.previousElementSibling.value = ""
+    this.setState({query:''})
   }
 
-  render(){
-    return(
-      <div className='search-container'>
-        <form>
-          <input type='text' placeholder=' ' onInput={e=>console.log(e.target.value)}></input>
-          <span ref={this.domCancel}></span>
+  handleSubmit = e => {
+    e.preventDefault()
+    this.props.searching(this.state.query)
+  }
+
+  render() {
+    // const style = this.state.query !== "" ? { display: "block" } : { display: "none" }
+
+    return (
+      <div className="search-container">
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" placeholder=" " onInput={this.handleInput}></input>
+          <span
+            onClick={this.handleClick}
+          ></span>
+          {/* <div
+            className="dropdown-menu"
+            style={style}
+          >
+            <p>London</p>
+            <p>Melbourne</p>
+          </div> */}
         </form>
       </div>
-    )
-  };
-};
+    );
+  }
+}
 
 export default SearchBar;

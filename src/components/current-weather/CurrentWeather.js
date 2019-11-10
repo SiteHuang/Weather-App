@@ -8,7 +8,7 @@ class CurrentWeather extends React.Component {
         <div className='celus-container'>
           <h1>{this.props.temp}<span>&#176;</span></h1>
           <p>{this.props.description}</p>
-          <img src='' alt='icon'></img>
+          <img src={this.props.icon} alt='icon'></img>
         </div>
         <hr className='line-divider'/>
         <div className='info-container'>

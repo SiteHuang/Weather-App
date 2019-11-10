@@ -6,23 +6,51 @@ class DetailForecast extends React.Component {
     super(props);
     this.barContainerDom = React.createRef();
     this.state = {
-      styleInfo: []
+      styleInfo: [],
+      query: "",
+      width: 0
     };
   }
 
   componentDidMount() {
+    this.setState({query: this.props.query})
+    // console.log(this.props.forecast);
     this.calculateBarStyles(this.props.forecast);
+    window.addEventListener("resize", ()=>{
+      this.setState({width: this.barContainerDom.current.clientWidth})
+    })
+  }
+
+  componentWillUnmount() {
+    console.log('object');
+    this.barContainerDom = React.createRef();
+
+    window.removeEventListener('resize', ()=>{
+      this.setState({width: this.barContainerDom.current.clientWidth})
+    })
+  }
+
+  componentDidUpdate(prevProps){
+    if (prevProps.query !== this.props.query) {
+      this.setState({query: this.props.query})      
+      this.calculateBarStyles(this.props.forecast);      
+    }
   }
 
   getBarComponents() {
     return this.state.styleInfo.map((item,index) => {
       return <BarComponent 
+        width={this.state.width}
+        query={this.state.query}
         key={index}
+        index={index}
         left={item.marginLeft} 
         height={item.height} 
         day={item.day} 
         temp={item.temp}
-        animationDelay={item.animationDelay}></BarComponent>;
+        animationDelay={item.animationDelay}
+        length={Object.keys(this.props.forecast).length}
+        ></BarComponent>;
     });
   }
 
@@ -32,16 +60,29 @@ class DetailForecast extends React.Component {
     const values = Object.values(data);
 
     var barList = [];
-    const maxTemp = Math.max(...values);
-    console.log(maxTemp);
+
+    // Sort to get the positions of original array
+    var unit = 0;
+    const heightList = new Array(values.length)
+    const copyArr = values.map(e=>Number(e))
+
+    copyArr.sort( (m,n) => m>n?1:-1 ).forEach(a => {
+      unit = unit +  0.7 / values.length;
+      values.forEach((b,index) => {
+        if (a === Number(b)) {
+          heightList[index] = unit
+        }
+      });
+    });
+
+
 
     for (let index = 0; index < keys.length; index++) {
-      const marginLeft = (width / (keys.length + 1)) * (index + 1) - 10 + "px";
+      const marginLeft = (width / (keys.length + 1)) * (index + 1) + "px";
       const temp = values[index];
-      const height = (temp / maxTemp).toFixed(2) * 100 + "px";
+      const height = heightList[index].toFixed(2) * 100 + "%"
       const day = keys[index];
       const animationDelay = 100 * index;
-
       barList.push({
         marginLeft: marginLeft,
         temp: temp,
@@ -51,7 +92,8 @@ class DetailForecast extends React.Component {
       });
     }
     this.setState({
-      styleInfo: barList
+      styleInfo: barList,
+      width
     });
   }
 
@@ -60,19 +102,7 @@ class DetailForecast extends React.Component {
       <div className="detail-temperature-container">
         <p>Temperature</p>
         <div className="igFrameBar" ref={this.barContainerDom}>
-          {/* <BarComponent width={this.state.barWidth} total="7" i="2"></BarComponent> */}
           {this.getBarComponents()}
-
-          {/* <div class="igData line igData1" ><p>50</p><span>2pm</span></div>
-          <div class="igData line igData2"></div>
-          <div class="igData line igData3"></div>
-          <div class="igData line igData4"></div>
-          <div class="igData line igData5"></div>
-          <div class="igData line igData6"></div>
-          <div class="igData line igData7"></div>
-          <div class="igData line igData8"></div>
-          <div class="igData line igData9"></div>
-          <div class="igData line igData10"></div> */}
         </div>
       </div>
     );

@@ -41,13 +41,15 @@
       .right-side {
         display: none;
       }
-    } @else {
+    } 
+    @else {
       clip: rect(auto, auto, auto, auto);
 
       .right-side {
         transform: rotate(180deg);
       }
     }
+
   }
 }
 
@@ -82,6 +84,7 @@
     position: relative;
     // margin-right: 1rem;
 
+
     &:not(:last-child){
       margin-right: 2rem;
     }
@@ -101,15 +104,16 @@
         left: 0;
         position: absolute;
         top: 0;
+
       }
     }
   
     &-number {
       border-radius: 50%;
-      top: $pie-size / 2;
+      top: 50%;
     
-      left: $pie-size / 2;
-      transform: translate(-$pie-label-font/2, -($pie-label-font+$pie-percent-font)/2);
+      left: 50%;
+      transform: translate(-50%, -50%);
       cursor: default;
       display: block;
       font-size: $pie-label-font;
@@ -133,7 +137,9 @@
     }
     
     @for $i from 1 to 100 {
-      &.progress-#{$i} {@include draw-progress($i, $pie-color)}
+      &.progress-#{$i} {
+        @include draw-progress($i, $pie-color);
+      }
     }
   }
 

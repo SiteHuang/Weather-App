@@ -9,6 +9,28 @@
     position: relative;
     border-radius: 3rem;
 
+    // .dropdown-menu {
+    //   display: none;
+    //   background-color: $color-gray4;
+    //   position: absolute;
+    //   width: 30rem;
+    //   overflow: hidden;
+    //   margin-top: .4rem;
+    //   border-radius: 1rem;
+
+    //   > p {
+    //     display: block;
+    //     font-size: $font-sm;
+    //     background-color: rgba($color: $color-gray2, $alpha: 0.8);
+        
+    //     &:not(:last-child) {
+    //       margin-bottom: .1rem;
+    //     }
+        
+    //   }
+
+    // }
+
     > input {
       font-size: 1.5rem;
       font-weight: 700;
@@ -23,6 +45,8 @@
       &:focus {
         outline: none;
       }
+
+      // no text in input
       &:focus, &:not(:placeholder-shown) {
         width: 30rem;
         transition: width 800ms cubic-bezier(0.5, -0.5, 0.5, 1.5);

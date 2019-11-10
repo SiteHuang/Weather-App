@@ -8,7 +8,6 @@
   position: absolute;
   bottom: 5rem;
   left: $m-in-x;
-  color: $color-gray6;
   width: calc(100% - #{$m-in-x} - #{$m-in-sx});
   > h1 {
     font-size: $font-xxl;
@@ -24,7 +23,9 @@
   }
 
   > img {
+    margin-top: calc(#{$font-xxl} - #{$font-lg});
     float: right;
+    opacity: .9
   }
 }
 
