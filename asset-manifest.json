@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/SiteHuang/Weather-App/demo/static/css/main.35d22962.chunk.css",
+    "main.js": "/SiteHuang/Weather-App/demo/static/js/main.90f9733d.chunk.js",
+    "main.js.map": "/SiteHuang/Weather-App/demo/static/js/main.90f9733d.chunk.js.map",
+    "runtime~main.js": "/SiteHuang/Weather-App/demo/static/js/runtime~main.792bef14.js",
+    "runtime~main.js.map": "/SiteHuang/Weather-App/demo/static/js/runtime~main.792bef14.js.map",
+    "static/js/2.ddf9a4ef.chunk.js": "/SiteHuang/Weather-App/demo/static/js/2.ddf9a4ef.chunk.js",
+    "static/js/2.ddf9a4ef.chunk.js.map": "/SiteHuang/Weather-App/demo/static/js/2.ddf9a4ef.chunk.js.map",
+    "index.html": "/SiteHuang/Weather-App/demo/index.html",
+    "precache-manifest.0e1a008951b205101d6f455080ebe9a7.js": "/SiteHuang/Weather-App/demo/precache-manifest.0e1a008951b205101d6f455080ebe9a7.js",
+    "service-worker.js": "/SiteHuang/Weather-App/demo/service-worker.js",
+    "static/css/main.35d22962.chunk.css.map": "/SiteHuang/Weather-App/demo/static/css/main.35d22962.chunk.css.map",
+    "static/media/Clear.jpeg": "/SiteHuang/Weather-App/demo/static/media/Clear.846f45c7.jpeg",
+    "static/media/Clouds.jpeg": "/SiteHuang/Weather-App/demo/static/media/Clouds.9afbeb9e.jpeg",
+    "static/media/Drizzle.jpeg": "/SiteHuang/Weather-App/demo/static/media/Drizzle.86726ded.jpeg",
+    "static/media/Fog.jpeg": "/SiteHuang/Weather-App/demo/static/media/Fog.9e2993e6.jpeg",
+    "static/media/Rain.jpeg": "/SiteHuang/Weather-App/demo/static/media/Rain.4d7bbd92.jpeg",
+    "static/media/Snow.jpeg": "/SiteHuang/Weather-App/demo/static/media/Snow.3fdfb20c.jpeg",
+    "static/media/Thunderstorm.jpeg": "/SiteHuang/Weather-App/demo/static/media/Thunderstorm.91ae2e46.jpeg",
+    "static/media/index.scss": "/SiteHuang/Weather-App/demo/static/media/default.a37f2fa9.jpg"
+  }
+}
